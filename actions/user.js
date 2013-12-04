@@ -1,4 +1,6 @@
 var crypto = require('crypto');
+var User = require('../models/userModel.js');
+
 var redisPrefix = "__users-";
 var caluculatePassowrdHash = function (password, salt) {
   return crypto.createHash('sha256').update(salt + password).digest("hex");
@@ -17,26 +19,46 @@ exports.userAdd = {
   blockedConnectionTypes: [],
   outputExample: {},
   run: function (api, connection, next) {
-    if (connection.params.password.length < 6) {
-      connection.error = "password must be longer than 6 chars";
-      next(connection, true)
-    } else {
+
+    User.findOne({email: connection.params.email}, function (err, result) {
+      if (result) {
+        connection.error = "This email is already in use";
+        next(connection, true);
+        return;
+      }
+
+      if (connection.params.password.length < 6) {
+        connection.error = "password must be longer than 6 chars";
+        next(connection, true)
+        return;
+      }
+
       var passwordSalt = api.utils.randomString(64);
       var passwordHash = caluculatePassowrdHash(connection.params.password, passwordSalt);
-      var user = {
+      var data = {
         email: connection.params.email,
         firstName: connection.params.firstName,
         lastName: connection.params.lastName,
         passwordSalt: passwordSalt,
-        passwordHash: passwordHash,
+        passwordHash: passwordHash
       };
       console.log(cacheKey(connection))
-      api.cache.save(cacheKey(connection), user, function (error) {
-        connection.error = error;
-        connection.response.userCreated = true;
-        next(connection, true);
+
+      var user = new User(data);
+      user.save(function (error) {
+        if (error) {
+          connection.error = error;
+          next(connection, true);
+          return;
+        }
+
+        api.cache.save(cacheKey(connection), data, function (error) {
+          connection.error = error;
+          connection.response.userCreated = true;
+          next(connection, true);
+        });
       });
-    }
+    })
   }
 };
 

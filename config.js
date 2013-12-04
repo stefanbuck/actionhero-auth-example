@@ -166,6 +166,14 @@ configData.servers = {
   // },
 };
 
+configData.mongo = {
+  host: 'localhost',
+  port: 27017,
+  username: null,
+  password: null,
+  database: 'actionhero_auth'
+};
+
 //////////////////////////////////
 
 exports.configData = configData;
