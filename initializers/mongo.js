@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 exports.mongo = function (api, next) {
 
-  var config = api.configData.mongo;
+  var config = api.config.mongo;
   var uri = generateMonogURI(config);
 
   api.mongo = {};
