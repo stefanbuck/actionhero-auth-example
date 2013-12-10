@@ -1,6 +1,6 @@
 # actionHero auth example
 
-> Based on Evan Tahler's example [Authentication with actionHero Again](http://blog.evantahler.com/blog/authentication-with-actionHero-again.html)
+> Based on Evan Tahler's example [Authentication with actionHero Again](http://blog.evantahler.com/blog/authentication-with-actionHero-again.html).
 > This module is under development and not yet ready for production use.
 
 ## Requirements
@@ -45,3 +45,7 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/stefanbuck/actionhero-auth-example/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
