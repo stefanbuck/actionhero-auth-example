@@ -157,7 +157,7 @@ config.servers = {
     // Passed to https.createServer if secure=true. Should contain SSL certificates
     serverOptions: {},
     // Port or Socket
-    port: 8080,
+    port: process.env.PORT || 8080,
     // Which IP to listen on (use '0.0.0.0' for all; '::' for all on ipv4 and ipv6)
     bindIP: '0.0.0.0',
     // Any additional headers you want actionHero to respond with

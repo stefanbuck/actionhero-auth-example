@@ -1,0 +1,1 @@
+web: node ./node_modules/actionHero/bin/actionHero start
