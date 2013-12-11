@@ -11,7 +11,7 @@ var config = {};
 /////////////////////////
 
 config.general = {
-  apiVersion: '0.0.1',
+  apiVersion: '0.1.0',
   serverName: 'actionHero API',
   // id can be set here, or it will be generated dynamically.
   //  Be sure that every server you run has a unique ID (which will happen when generated dynamically)
@@ -216,6 +216,7 @@ config.servers = {
 };
 
 config.mongo = {
+  uri: '',
   host: 'localhost',
   port: 27017,
   username: null,

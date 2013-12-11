@@ -18,6 +18,20 @@ config.servers = {
   }
 }
 
+var redisUrlObj = require('url').parse(process.env.REDISCLOUD_URL);
+config.redis = {
+    fake: false,
+    host: redisUrlObj.hostname,
+    port: redisUrlObj.port,
+    password: redisUrlObj.auth.split(':')[1],
+    options: null,
+    database: 0
+};
+
+config.mongo = {
+    uri: process.env.MONGOLAB_URI
+};
+
 //
 
 exports.config = config;

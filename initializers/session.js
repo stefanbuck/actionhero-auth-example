@@ -2,7 +2,7 @@ exports.session = function (api, next) {
 
   api.session = {
     prefix: "__session:",
-    duration: 60 * 60 * 1000 // 1 hour
+    duration: 10 * 60 * 1000 // 10 minutes
   };
 
   api.session.save = function (connection, session, next) {
