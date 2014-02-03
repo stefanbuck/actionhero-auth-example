@@ -1,7 +1,6 @@
 # actionhero.js auth example
 
 > Based on Evan Tahler's example [Authentication with actionhero Again](http://blog.evantahler.com/blog/authentication-with-actionHero-again.html).
-> This module is under development and not yet ready for production use.
 
 ## Requirements
 
@@ -23,8 +22,8 @@
 1. Start your MongoDB server ``mongod``` (if not already running)
 1. Start the actionhero server ```./node_modules/.bin/actionhero start```
 
-## Example
 
+#### Requests
 - [http://localhost:8080/api/userAdd?email=evan@evantahler.com&password=password&firstName=Evan&lastName=tahler](http://localhost:8080/api/userAdd?email=evan@evantahler.com&password=password&firstName=Evan&lastName=tahler)
 - [http://localhost:8080/api/logIn?email=evan@evantahler.com&password=password](http://localhost:8080/api/logIn?email=evan@evantahler.com&password=password)
 - [http://localhost:8080/api/authenticatedAction](http://localhost:8080/api/authenticatedAction)
