@@ -1,4 +1,4 @@
-// actionHero Config File
+// actionhero Config File
 // I will be loaded into api.config
 
 var fs = require('fs');
@@ -11,15 +11,15 @@ var config = {};
 /////////////////////////
 
 config.general = {
-  apiVersion: '0.1.0',
-  serverName: 'actionHero API',
+  apiVersion: '0.0.2',
+  serverName: 'actionhero API',
   // id can be set here, or it will be generated dynamically.
   //  Be sure that every server you run has a unique ID (which will happen when generated dynamically)
 //  id: 'myActionHeroServer',
   // A unique token to your application that servers will use to authenticate to each other
   serverToken: 'change-me',
   // The welcome message seen by TCP and webSocket clients upon connection
-  welcomeMessage: 'Hello! Welcome to the actionHero api',
+  welcomeMessage: 'Hello! Welcome to the actionhero api',
   // The body message to accompany 404 (file not found) errors regarding flat files
   flatFileNotFoundMessage: 'Sorry, that file is not found :(',
   // The message to accompany 500 errors (internal server errors)
@@ -27,11 +27,19 @@ config.general = {
   // defaultLimit & defaultOffset are useful for limiting the length of response lists. 
   defaultLimit: 100,
   defaultOffset: 0,
+  // the redis prefix for actionhero's cache objects
+  cachePrefix: 'actionhero:cache:',
   // Watch for changes in actions and tasks, and reload/restart them on the fly
   developmentMode: true,
   // How many pending actions can a single connection be working on 
   simultaneousActions: 5,
-  // configuration for your actionHero project structure
+  // disables the whitelisting of client params
+  disableParamScrubbing: false,
+  // params you would like hidden from any logs
+  filterParameters: [],
+  // The default filetype to server when a user requests a directory
+  directoryFileType : 'index.html',
+  // configuration for your actionhero project structure
   paths: {
     'action':      __dirname + '/../actions',
     'task':        __dirname + '/../tasks',
@@ -83,20 +91,6 @@ config.logger.transports.push(function(api, winston) {
 });
 
 ///////////
-// Stats //
-///////////
-
-config.stats = {
-  // how often should the server write its stats to redis?
-  writeFrequency: 1000,
-  // what redis key(s) [hash] should be used to store stats?
-  //  provide no key if you do not want to store stats
-  keys: [
-    'actionHero:stats'
-  ]
-}
-
-///////////
 // Redis //
 ///////////
 
@@ -108,6 +102,20 @@ config.redis = {
   options: null,
   database: 0
 };
+
+///////////
+// Stats //
+///////////
+
+config.stats = {
+  // how often should the server write its stats to redis?
+  writeFrequency: 1000,
+  // what redis key(s) [hash] should be used to store stats?
+  //  provide no key if you do not want to store stats
+  keys: [
+    'actionhero:stats'
+  ]
+}
 
 //////////
 // FAYE //
@@ -157,11 +165,12 @@ config.servers = {
     // Passed to https.createServer if secure=true. Should contain SSL certificates
     serverOptions: {},
     // Port or Socket
-    port: process.env.PORT || 8080,
+    port: 8080,
     // Which IP to listen on (use '0.0.0.0' for all; '::' for all on ipv4 and ipv6)
     bindIP: '0.0.0.0',
-    // Any additional headers you want actionHero to respond with
+    // Any additional headers you want actionhero to respond with
     httpHeaders : {
+      'X-Powered-By'                : config.general.serverName,
       'Access-Control-Allow-Origin' : '*',
       'Access-Control-Allow-Methods': 'HEAD, GET, POST, PUT, DELETE, OPTIONS, TRACE',
       'Access-Control-Allow-Headers': 'Content-Type'
@@ -175,15 +184,14 @@ config.servers = {
     // When visiting the root URL, should visitors see 'api' or 'file'?
     //  Visitors can always visit /api and /public as normal
     rootEndpointType : 'file',
-    // The default filetype to server when a user requests a directory
-    directoryFileType : 'index.html',
     // The header which will be returned for all flat file served from /public; defined in seconds
     flatFileCacheDuration : 60,
     // Settings for determining the id of an http(s) request (browser-fingerprint)
     fingerprintOptions : {
       cookieKey: 'sessionID',
       toSetCookie: true,
-      onlyStaticElements: false
+      onlyStaticElements: false,
+      settings: 'path=/;'
     },
     // Options to be applied to incoming file uploads.
     //  More options and details at https://github.com/felixge/node-formidable
@@ -202,7 +210,7 @@ config.servers = {
     returnErrorCodes: false
   },
   'websocket' : {
-  }
+  },
   // 'socket' : {
   //   // TCP or TLS?
   //   secure: false,
@@ -223,7 +231,6 @@ config.mongo = {
   password: null,
   database: 'actionhero_auth'
 };
-
 
 //////////////////////////////////
 

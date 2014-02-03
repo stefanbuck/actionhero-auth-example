@@ -1,6 +1,6 @@
-# actionHero auth example
+# actionhero.js auth example
 
-> Based on Evan Tahler's example [Authentication with actionHero Again](http://blog.evantahler.com/blog/authentication-with-actionHero-again.html).
+> Based on Evan Tahler's example [Authentication with actionhero Again](http://blog.evantahler.com/blog/authentication-with-actionHero-again.html).
 > This module is under development and not yet ready for production use.
 
 ## Requirements
@@ -14,7 +14,7 @@
 1. ```cd actionhero-auth-example```
 1. ```npm install```
 1. Start your MongoDB server ``mongod``` (if not already running)
-1. Start the actionHero server ```./node_modules/.bin/actionHero start```
+1. Start the actionhero server ```./node_modules/.bin/actionhero start```
 
 ## Example
 
@@ -45,7 +45,3 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-![Analytics](https://ga-beacon.appspot.com/UA-40473036-5/actionhero-auth-example/readme?pixel)
-

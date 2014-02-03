@@ -1,27 +1,29 @@
 {
-  "author": "YOU <YOU@example.com>",
-  "name": "my_actionHero_project",
-  "description": "",
-  "version": "0.0.1",
-  "homepage": "",
-  "repository": {
-    "type": "",
-    "url": ""
-  },
-  "main": "app.js",
-  "keywords": "",
+  "name": "actionhero-auth-example",
+  "description": "my actionhero project",
+  "version": "0.0.2",
   "engines": {
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "actionhero": "7.6.0",
-    "mongoose": "~3.8.1"
+    "actionhero": "~7.6.2",
+    "grunt": "~0.4.2",
+    "mongoose": "~3.8.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "should": "~3.1.2"
+  },
   "scripts": {
-    "start": "node ./node_modules/.bin/actionHero start",
-    "startCluster": "node ./node_modules/.bin/actionHero startCluster",
-    "actionHero": "node ./node_modules/.bin/actionHero",
-    "help": "node ./node_modules/.bin/actionHero help"
+    "help": "actionhero help",
+    "start": "actionhero start",
+    "actionhero": "actionhero",
+    "startCluster": "actionhero startCluster",
+    "test": "mocha"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefanbuck/actionhero-auth-example"
   }
 }
