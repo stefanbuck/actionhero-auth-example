@@ -11,6 +11,7 @@ config.general = {
 
 config.servers = {
   web: {
+    port: process.env.PORT || 8080,
     metadataOptions: {
       serverInformation: false,
       requesterInformation: false
