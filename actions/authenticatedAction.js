@@ -3,7 +3,7 @@ var action = {};
 /////////////////////////////////////////////////////////////////////
 // metadata
 action.name = 'authenticatedAction';
-action.description = 'authenticatedAction';
+action.description = 'The secret response';
 action.inputs = {
   'required' : [],
   'optional' : []

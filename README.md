@@ -8,6 +8,13 @@
 - node >= 0.8.0
 - MongoDB
 
+## Demo
+
+- [http://actionhero-auth-example.herokuapp.com](http://actionhero-auth-example.herokuapp.com/)
+- [http://actionhero-auth-example.herokuapp.com/api/userAdd?email=evan@evantahler.com&password=password&firstName=Evan&lastName=tahler](http://actionhero-auth-example.herokuapp.com/api/userAdd?email=evan@evantahler.com&password=password&firstName=Evan&lastName=tahler)
+- [http://actionhero-auth-example.herokuapp.com/api/logIn?email=evan@evantahler.com&password=password](http://actionhero-auth-example.herokuapp.com/api/logIn?email=evan@evantahler.com&password=password)
+- [http://actionhero-auth-example.herokuapp.com/api/authenticatedAction](http://actionhero-auth-example.herokuapp.com/api/authenticatedAction)
+
 ## Setup
 
 1. ```git clone https://github.com/stefanbuck/actionhero-auth-example```

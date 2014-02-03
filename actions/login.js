@@ -5,13 +5,15 @@ var action = {};
 /////////////////////////////////////////////////////////////////////
 // metadata
 action.name = 'logIn';
-action.description = 'logIn';
+action.description = 'Login the user with the given credentials';
 action.inputs = {
   'required' : ['email', 'password'],
   'optional' : []
 };
 action.blockedConnectionTypes = [];
-action.outputExample = {}
+action.outputExample = {
+  "auth": true
+}
 
 /////////////////////////////////////////////////////////////////////
 // functional

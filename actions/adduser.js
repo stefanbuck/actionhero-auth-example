@@ -4,13 +4,15 @@ var action = {};
 /////////////////////////////////////////////////////////////////////
 // metadata
 action.name = 'userAdd';
-action.description = 'userAdd';
+action.description = 'I will create an new user based on the given parameters';
 action.inputs = {
   'required': ['email', 'password', 'firstName', 'lastName'],
   'optional' : []
 };
 action.blockedConnectionTypes = [];
-action.outputExample = {}
+action.outputExample = {
+  "userCreated": true
+}
 
 /////////////////////////////////////////////////////////////////////
 // functional
@@ -45,6 +47,8 @@ action.run = function(api, connection, next){
         next(connection, true);
         return;
       }
+      connection.response.userCreated = true;
+      next(connection, true);
     });
   })
 };
