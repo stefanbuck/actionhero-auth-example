@@ -19,8 +19,8 @@
 1. ```git clone https://github.com/stefanbuck/actionhero-auth-example```
 1. ```cd actionhero-auth-example```
 1. ```npm install```
-1. Start your MongoDB server ``mongod``` (if not already running)
-1. Start the actionhero server ```./node_modules/.bin/actionhero start```
+1. Start your MongoDB server ``mongod`` (if not already running)
+1. Start the actionhero server ```npm start```
 
 
 #### Requests
